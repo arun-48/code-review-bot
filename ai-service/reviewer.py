@@ -19,20 +19,16 @@ class AIReviewer:
         self.loaded     = False
 
     def load(self):
-        """Load model into memory — called once at startup"""
-        print(f"📥 Loading model from: {self.model_path}")
+        """Load model — local folder in dev, HF Hub in deployment"""
+        model_source = self.model_path if os.path.exists(self.model_path) else "arun-48/codet5-review"
+        print(f"📥 Loading model from: {model_source}")
         print(f"   Device: {self.device}")
 
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            self.model_path
-        )
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(
-            self.model_path
-        )
-        self.model = self.model.to(self.device)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_source)
+        self.model     = AutoModelForSeq2SeqLM.from_pretrained(model_source)
+        self.model     = self.model.to(self.device)
         self.model.eval()
-
-        self.loaded = True
+        self.loaded    = True
         print("✅ Model loaded successfully!")
 
     def generate_review(self, code: str) -> str:
