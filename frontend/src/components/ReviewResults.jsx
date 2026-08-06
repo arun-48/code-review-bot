@@ -229,10 +229,7 @@ function ReviewResults({ result }) {
                                                     return g
                                                 }, {})
                                             ).map((issue, idx) => {
-                                                const color = issue.severity === 'critical'
-                                                    ? '#F28B82'
-                                                    : issue.severity === 'warning'
-                                                        ? '#FBC02D' : '#D0BCFF'
+                                                const color = issue.severity === 'critical' ? '#F28B82' : issue.severity === 'warning' ? '#FBC02D' : '#D0BCFF'
                                                 const emoji = issue.category === 'security'
                                                     ? '🔐' : '🐛'
 

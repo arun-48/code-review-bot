@@ -55,7 +55,6 @@ function HomePage() {
 
         try {
             let detectedLang = 'unknown'
-            let confident    = false
 
             try {
                 toast.loading('Detecting language...', { id: 'detect' })
@@ -63,10 +62,8 @@ function HomePage() {
 
                 if (typeof detection === 'string') {
                     detectedLang = detection
-                    confident    = detection !== 'unknown'
                 } else {
                     detectedLang = detection.language  || 'unknown'
-                    confident    = detection.confident ?? detectedLang !== 'unknown'
                 }
                 toast.dismiss('detect')
             } catch {

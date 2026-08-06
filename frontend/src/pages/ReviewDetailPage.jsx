@@ -38,7 +38,7 @@ function ReviewDetailPage() {
     const [prev,    setPrev]    = useState(null)
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => { loadReview() }, [reviewId])
+    useEffect(() => { loadReview() }, [reviewId]) // eslint-disable-line react-hooks/exhaustive-deps
 
     const loadReview = async () => {
         try {
