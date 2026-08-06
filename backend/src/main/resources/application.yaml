@@ -9,9 +9,9 @@ spring:
 
   # ── Database ──
   datasource:
-    url: jdbc:mysql://localhost:3306/code_review_db
-    username: root
-    password: admin123
+    url: ${DB_URL:jdbc:mysql://localhost:3306/codereview}
+    username: ${DB_USER:root}
+    password: ${DB_PASS:admin123}
 
 
   # ── JPA ──

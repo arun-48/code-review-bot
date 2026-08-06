@@ -4,6 +4,7 @@ package com.codereview.bot.service;
 import com.codereview.bot.model.ReviewRequest;
 import com.codereview.bot.model.ReviewResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
@@ -15,9 +16,10 @@ public class PythonApiClient {
 
     private final WebClient webClient;
 
-    public PythonApiClient(WebClient.Builder builder) {
+    public PythonApiClient(WebClient.Builder builder,
+                        @Value("${PYTHON_API_URL:http://localhost:5000}") String pythonUrl) {
         this.webClient = builder
-                .baseUrl("http://localhost:5000")
+                .baseUrl(pythonUrl)
                 .build();
     }
 
