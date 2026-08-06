@@ -1,0 +1,18 @@
+﻿# Python
+ai-service/venv/
+ai-service/__pycache__/
+ai-service/.env
+ai-service/model/
+
+# Java
+backend/build/
+backend/.gradle/
+backend/.idea/
+
+# React
+frontend/node_modules/
+frontend/build/
+
+# Misc
+.DS_Store
+*.log
