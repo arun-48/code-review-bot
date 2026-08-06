@@ -20,11 +20,8 @@ A full-stack, 3-layer hybrid AI system that automatically detects security vulne
 
 ## 🏗️ Architecture
   React (Vercel) → Java Spring Boot (Render) → Python FastAPI (Render)
-- │ 3-Layer Analysis Engine:
-▼ - Rule Engine (custom)
+3-Layer Analysis Engine:
+- Rule Engine (custom)
 - MySQL (Aiven)
 - CodeT5 (fine-tuned)
 - Gemini AI
-
-
-A microservice-style split: React handles the UI, Spring Boot manages business logic and persistence, and FastAPI hosts the AI analysis engine.
